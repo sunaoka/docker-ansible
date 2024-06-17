@@ -13,5 +13,5 @@ matrix=(
 
 for ((i = 0; i < ${#matrix[@]}; i++)); do
     IFS=" " read -r -a row <<<"${matrix[i]}"
-    make ANSIBLE="${row[0]}" PYTHON="${row[1]}"
+    make build ANSIBLE="${row[0]}" PYTHON="${row[1]}"
 done

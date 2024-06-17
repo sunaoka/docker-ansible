@@ -9,7 +9,8 @@ BUILDER := docker-ansible-builder
 
 BUILDER_ARGS := --build-arg ANSIBLE=$(ANSIBLE) --build-arg PYTHON=$(PYTHON) -t $(IMAGE):$(ANSIBLE) -t $(IMAGE):$(basename $(ANSIBLE))
 
-all: build
+all:
+	bash $(CURDIR)/build.sh
 
 setup:
 	(docker buildx ls | grep $(BUILDER)) || docker buildx create --name $(BUILDER)

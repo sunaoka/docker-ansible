@@ -6,11 +6,11 @@ ARG ANSIBLE
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN <<EOT
-  apt update
-  apt upgrade -y
+RUN <<EOT sh -ex
+  apt-get update
+  apt-get upgrade -y
 
-  apt install -y --no-install-recommends \
+  apt-get install -y --no-install-recommends \
       ssh \
       sshpass
 
@@ -21,9 +21,9 @@ RUN <<EOT
       ansible-core==${ANSIBLE} \
       passlib
 
-  apt purge --auto-remove -y
-  apt autoremove
-  apt clean
+  apt-get purge --auto-remove -y
+  apt-get autoremove
+  apt-get clean
 
   rm -rf /var/lib/apt/lists/*
   rm -rf /tmp/*
