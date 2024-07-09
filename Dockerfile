@@ -19,6 +19,7 @@ RUN <<EOT sh -ex
   pip install --no-cache-dir \
       ansible \
       ansible-core==${ANSIBLE} \
+      ansible-lint \
       passlib
 
   apt-get purge --auto-remove -y
