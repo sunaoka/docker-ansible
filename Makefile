@@ -21,10 +21,10 @@ all: 2.13 2.14 2.15 2.16 2.17
 	$(MAKE) build ANSIBLE="2.15.12" PYTHON="3.11"
 
 2.16:
-	$(MAKE) build ANSIBLE="2.16.8" PYTHON="3.12"
+	$(MAKE) build ANSIBLE="2.16.9" PYTHON="3.12"
 
 2.17:
-	$(MAKE) build ANSIBLE="2.17.1" PYTHON="3.12"
+	$(MAKE) build ANSIBLE="2.17.2" PYTHON="3.12"
 
 setup:
 	(docker buildx ls | grep $(BUILDER)) || docker buildx create --name $(BUILDER)
