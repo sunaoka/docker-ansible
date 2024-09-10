@@ -23,17 +23,17 @@ all: 2.16 2.17
 	$(MAKE) build ANSIBLE="2.15.12" PYTHON="3.11"
 
 2.16:
-	$(MAKE) build ANSIBLE="2.16.10" PYTHON="3.12"
+	$(MAKE) build ANSIBLE="2.16.11" PYTHON="3.12"
 
 2.17:
-	$(MAKE) build ANSIBLE="2.17.3" PYTHON="3.12" LATEST_ARGS="-t $(IMAGE):latest"
+	$(MAKE) build ANSIBLE="2.17.4" PYTHON="3.12" LATEST_ARGS="-t $(IMAGE):latest"
 
 setup:
 	(docker buildx ls | grep $(BUILDER)) || docker buildx create --name $(BUILDER)
 
 build: setup
 	docker buildx use $(BUILDER)
-	docker buildx build --rm --platform $(PLATFORM) $(BUILDER_ARGS) $(LATEST_ARGS) --push .
+	docker buildx build --rm --no-cache --pull --platform $(PLATFORM) $(BUILDER_ARGS) $(LATEST_ARGS) --push .
 	docker buildx rm $(BUILDER)
 
 .PHONY: all setup build
