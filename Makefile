@@ -12,6 +12,8 @@ BUILDER_ARGS := --build-arg ANSIBLE=$(ANSIBLE) --build-arg PYTHON=$(PYTHON) -t $
 LATEST_ARGS :=
 
 SUPPORTED := 2.16 2.17
+EOL := 2.13 2.14 2.15
+
 all: $(SUPPORTED)
 
 2.13:
@@ -37,4 +39,17 @@ build: setup
 	docker buildx build --rm --no-cache --pull --platform $(PLATFORM) $(BUILDER_ARGS) $(LATEST_ARGS) --push .
 	docker buildx rm $(BUILDER)
 
-.PHONY: all setup build
+define SHOW_VERSION
+	printf '\n## Version %s\n\n```text\n' $(1) >> $(2)
+	@docker run --rm -it sunaoka/ansible:$(1) ansible --version >> $(2)
+	@printf '```\n\n```text\n' >> $(2)
+	@docker run --rm -it sunaoka/ansible:$(1) ansible-lint --nocolor --version >> $(2)
+	@printf '```\n' >> $(2)
+
+endef
+
+versions: VERSIONS.md
+	@printf '# Versions\n' > $<
+	$(foreach v,$(EOL) $(SUPPORTED),$(call SHOW_VERSION,$(v),$<))
+
+.PHONY: all setup build version
