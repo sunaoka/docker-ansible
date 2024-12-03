@@ -11,7 +11,7 @@ BUILDER_ARGS := --build-arg ANSIBLE=$(ANSIBLE) --build-arg PYTHON=$(PYTHON) -t $
 
 LATEST_ARGS :=
 
-SUPPORTED := 2.16 2.17
+SUPPORTED := 2.16 2.17 2.18
 EOL := 2.13 2.14 2.15
 
 all: $(SUPPORTED)
@@ -26,10 +26,13 @@ all: $(SUPPORTED)
 	$(MAKE) build ANSIBLE="2.15.13" PYTHON="3.11"
 
 2.16:
-	$(MAKE) build ANSIBLE="2.16.13" PYTHON="3.12"
+	$(MAKE) build ANSIBLE="2.16.14" PYTHON="3.12"
 
 2.17:
-	$(MAKE) build ANSIBLE="2.17.6" PYTHON="3.12" LATEST_ARGS="-t $(IMAGE):latest"
+	$(MAKE) build ANSIBLE="2.17.7" PYTHON="3.12"
+
+2.18:
+	$(MAKE) build ANSIBLE="2.18.1" PYTHON="3.13" LATEST_ARGS="-t $(IMAGE):latest"
 
 setup:
 	(docker buildx ls | grep $(BUILDER)) || docker buildx create --name $(BUILDER)
@@ -41,9 +44,9 @@ build: setup
 
 define SHOW_VERSION
 	printf '\n## Version %s\n\n```text\n' $(1) >> $(2)
-	@docker run --rm -it sunaoka/ansible:$(1) ansible --version >> $(2)
+	@docker run --rm -it $(IMAGE):$(1) ansible --version >> $(2)
 	@printf '```\n\n```text\n' >> $(2)
-	@docker run --rm -it sunaoka/ansible:$(1) ansible-lint --nocolor --version >> $(2)
+	@docker run --rm -it $(IMAGE):$(1) ansible-lint --nocolor --version >> $(2)
 	@printf '```\n' >> $(2)
 
 endef
