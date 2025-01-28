@@ -11,8 +11,8 @@ BUILDER_ARGS := --build-arg ANSIBLE=$(ANSIBLE) --build-arg PYTHON=$(PYTHON) -t $
 
 LATEST_ARGS :=
 
-SUPPORTED := 2.16 2.17 2.18
-EOL := 2.13 2.14 2.15
+SUPPORTED := 2.17 2.18
+EOL := 2.13 2.14 2.15 2.16
 
 all: $(SUPPORTED)
 
@@ -29,10 +29,10 @@ all: $(SUPPORTED)
 	$(MAKE) build ANSIBLE="2.16.14" PYTHON="3.12"
 
 2.17:
-	$(MAKE) build ANSIBLE="2.17.7" PYTHON="3.12"
+	$(MAKE) build ANSIBLE="2.17.8" PYTHON="3.12"
 
 2.18:
-	$(MAKE) build ANSIBLE="2.18.1" PYTHON="3.13" LATEST_ARGS="-t $(IMAGE):latest"
+	$(MAKE) build ANSIBLE="2.18.2" PYTHON="3.13" LATEST_ARGS="-t $(IMAGE):latest"
 
 setup:
 	(docker buildx ls | grep $(BUILDER)) || docker buildx create --name $(BUILDER)
