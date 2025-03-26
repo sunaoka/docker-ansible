@@ -6,7 +6,7 @@ ARG ANSIBLE
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN <<EOT sh -ex
+RUN <<'EOT' sh -ex
   apt-get update
   apt-get upgrade -y
 
@@ -28,4 +28,6 @@ RUN <<EOT sh -ex
 
   rm -rf /var/lib/apt/lists/*
   rm -rf /tmp/*
+
+  exit 0
 EOT

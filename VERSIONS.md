@@ -75,35 +75,35 @@ ansible-lint 24.10.0 using ansible-core:2.16.14 ansible-compat:24.10.0 ruamel-ya
 ## Version 2.17
 
 ```text
-ansible [core 2.17.8]
+ansible [core 2.17.10]
   config file = None
   configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/local/lib/python3.12/site-packages/ansible
   ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
   executable location = /usr/local/bin/ansible
-  python version = 3.12.8 (main, Jan 24 2025, 22:07:18) [GCC 12.2.0] (/usr/local/bin/python3.12)
-  jinja version = 3.1.5
+  python version = 3.12.9 (main, Mar 18 2025, 01:37:06) [GCC 12.2.0] (/usr/local/bin/python3.12)
+  jinja version = 3.1.6
   libyaml = True
 ```
 
 ```text
-ansible-lint 25.1.0 using ansible-core:2.17.8 ansible-compat:25.1.0 ruamel-yaml:0.18.10 ruamel-yaml-clib:0.2.12
+ansible-lint 25.1.3 using ansible-core:2.17.10 ansible-compat:25.1.4 ruamel-yaml:0.18.10 ruamel-yaml-clib:0.2.12
 ```
 
 ## Version 2.18
 
 ```text
-ansible [core 2.18.2]
+ansible [core 2.18.3]
   config file = None
   configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/local/lib/python3.13/site-packages/ansible
   ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
   executable location = /usr/local/bin/ansible
-  python version = 3.13.1 (main, Jan 24 2025, 21:01:20) [GCC 12.2.0] (/usr/local/bin/python3.13)
+  python version = 3.13.2 (main, Feb 25 2025, 08:32:21) [GCC 12.2.0] (/usr/local/bin/python3.13)
   jinja version = 3.1.5
   libyaml = True
 ```
 
 ```text
-ansible-lint 25.1.0 using ansible-core:2.18.2 ansible-compat:25.1.0 ruamel-yaml:0.18.10 ruamel-yaml-clib:None
+ansible-lint 25.1.3 using ansible-core:2.18.3 ansible-compat:25.1.4 ruamel-yaml:0.18.10 ruamel-yaml-clib:None
 ```
