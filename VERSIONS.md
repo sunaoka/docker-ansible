@@ -93,17 +93,17 @@ ansible-lint 25.1.3 using ansible-core:2.17.10 ansible-compat:25.1.4 ruamel-yaml
 ## Version 2.18
 
 ```text
-ansible [core 2.18.3]
+ansible [core 2.18.5]
   config file = None
   configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/local/lib/python3.13/site-packages/ansible
   ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
   executable location = /usr/local/bin/ansible
-  python version = 3.13.2 (main, Feb 25 2025, 08:32:21) [GCC 12.2.0] (/usr/local/bin/python3.13)
-  jinja version = 3.1.5
+  python version = 3.13.3 (main, Apr  9 2025, 02:33:35) [GCC 12.2.0] (/usr/local/bin/python3.13)
+  jinja version = 3.1.6
   libyaml = True
 ```
 
 ```text
-ansible-lint 25.1.3 using ansible-core:2.18.3 ansible-compat:25.1.4 ruamel-yaml:0.18.10 ruamel-yaml-clib:None
+ansible-lint 25.2.1 using ansible-core:2.18.5 ansible-compat:25.1.5 ruamel-yaml:0.18.10 ruamel-yaml-clib:None
 ```
