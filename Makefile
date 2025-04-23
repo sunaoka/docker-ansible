@@ -29,7 +29,7 @@ all: $(SUPPORTED)
 	$(MAKE) build ANSIBLE="2.16.14" PYTHON="3.12"
 
 2.17:
-	$(MAKE) build ANSIBLE="2.17.10" PYTHON="3.12"
+	$(MAKE) build ANSIBLE="2.17.11" PYTHON="3.12"
 
 2.18:
 	$(MAKE) build ANSIBLE="2.18.5" PYTHON="3.13" LATEST_ARGS="-t $(IMAGE):latest"
