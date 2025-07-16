@@ -1,6 +1,13 @@
 ANSIBLE :=
 PYTHON  :=
 
+ANSIBLE_2_13 := 2.13.13
+ANSIBLE_2_14 := 2.14.18
+ANSIBLE_2_15 := 2.15.13
+ANSIBLE_2_16 := 2.16.14
+ANSIBLE_2_17 := 2.17.12
+ANSIBLE_2_18 := 2.18.6
+
 IMAGE := sunaoka/ansible
 
 PLATFORM := linux/arm64,linux/amd64
@@ -17,22 +24,22 @@ EOL := 2.13 2.14 2.15 2.16
 all: $(SUPPORTED)
 
 2.13:
-	$(MAKE) build ANSIBLE="2.13.13" PYTHON="3.10"
+	$(MAKE) build ANSIBLE=$(ANSIBLE_2_13) PYTHON="3.10"
 
 2.14:
-	$(MAKE) build ANSIBLE="2.14.18" PYTHON="3.11"
+	$(MAKE) build ANSIBLE=$(ANSIBLE_2_14) PYTHON="3.11"
 
 2.15:
-	$(MAKE) build ANSIBLE="2.15.13" PYTHON="3.11"
+	$(MAKE) build ANSIBLE=$(ANSIBLE_2_15) PYTHON="3.11"
 
 2.16:
-	$(MAKE) build ANSIBLE="2.16.14" PYTHON="3.12"
+	$(MAKE) build ANSIBLE=$(ANSIBLE_2_16) PYTHON="3.12"
 
 2.17:
-	$(MAKE) build ANSIBLE="2.17.12" PYTHON="3.12"
+	$(MAKE) build ANSIBLE=$(ANSIBLE_2_17) PYTHON="3.12"
 
 2.18:
-	$(MAKE) build ANSIBLE="2.18.6" PYTHON="3.13" LATEST_ARGS="-t $(IMAGE):latest"
+	$(MAKE) build ANSIBLE=$(ANSIBLE_2_18) PYTHON="3.13" LATEST_ARGS="-t $(IMAGE):latest"
 
 setup:
 	(docker buildx ls | grep $(BUILDER)) || docker buildx create --name $(BUILDER)
