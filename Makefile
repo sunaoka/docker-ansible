@@ -5,8 +5,8 @@ ANSIBLE_2_13 := 2.13.13
 ANSIBLE_2_14 := 2.14.18
 ANSIBLE_2_15 := 2.15.13
 ANSIBLE_2_16 := 2.16.14
-ANSIBLE_2_17 := 2.17.12
-ANSIBLE_2_18 := 2.18.6
+ANSIBLE_2_17 := 2.17.13
+ANSIBLE_2_18 := 2.18.7
 
 IMAGE := sunaoka/ansible
 
@@ -63,4 +63,7 @@ versions: VERSIONS.md
 	@printf '# Versions\n' > $<
 	$(foreach v,$(EOL) $(SUPPORTED),$(call SHOW_VERSION,$(v),$<))
 
-.PHONY: all setup build version
+release:
+	bash scripts/release.sh
+
+.PHONY: all setup build versions release
