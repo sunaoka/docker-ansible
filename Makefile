@@ -63,4 +63,7 @@ versions: VERSIONS.md
 	@printf '# Versions\n' > $<
 	$(foreach v,$(EOL) $(SUPPORTED),$(call SHOW_VERSION,$(v),$<))
 
-.PHONY: all setup build version
+release:
+	bash release.sh
+
+.PHONY: all setup build versions release
