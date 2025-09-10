@@ -5,8 +5,9 @@ ANSIBLE_2_13 := 2.13.13
 ANSIBLE_2_14 := 2.14.18
 ANSIBLE_2_15 := 2.15.13
 ANSIBLE_2_16 := 2.16.14
-ANSIBLE_2_17 := 2.17.13
-ANSIBLE_2_18 := 2.18.8
+ANSIBLE_2_17 := 2.17.14
+ANSIBLE_2_18 := 2.18.9
+ANSIBLE_2_19 := 2.19.2
 
 IMAGE := sunaoka/ansible
 
@@ -18,7 +19,7 @@ BUILDER_ARGS := --build-arg ANSIBLE=$(ANSIBLE) --build-arg PYTHON=$(PYTHON) -t $
 
 LATEST_ARGS :=
 
-SUPPORTED := 2.17 2.18
+SUPPORTED := 2.17 2.18 2.19
 EOL := 2.13 2.14 2.15 2.16
 
 all: $(SUPPORTED)
@@ -39,7 +40,10 @@ all: $(SUPPORTED)
 	$(MAKE) build ANSIBLE=$(ANSIBLE_2_17) PYTHON="3.12"
 
 2.18:
-	$(MAKE) build ANSIBLE=$(ANSIBLE_2_18) PYTHON="3.13" LATEST_ARGS="-t $(IMAGE):latest"
+	$(MAKE) build ANSIBLE=$(ANSIBLE_2_18) PYTHON="3.13"
+
+2.19:
+	$(MAKE) build ANSIBLE=$(ANSIBLE_2_19) PYTHON="3.13" LATEST_ARGS="-t $(IMAGE):latest"
 
 setup:
 	(docker buildx ls | grep $(BUILDER)) || docker buildx create --name $(BUILDER)
