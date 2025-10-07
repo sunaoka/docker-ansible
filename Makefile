@@ -6,8 +6,8 @@ ANSIBLE_2_14 := 2.14.18
 ANSIBLE_2_15 := 2.15.13
 ANSIBLE_2_16 := 2.16.14
 ANSIBLE_2_17 := 2.17.14
-ANSIBLE_2_18 := 2.18.9
-ANSIBLE_2_19 := 2.19.2
+ANSIBLE_2_18 := 2.18.10
+ANSIBLE_2_19 := 2.19.3
 
 IMAGE := sunaoka/ansible
 
@@ -19,8 +19,8 @@ BUILDER_ARGS := --build-arg ANSIBLE=$(ANSIBLE) --build-arg PYTHON=$(PYTHON) -t $
 
 LATEST_ARGS :=
 
-SUPPORTED := 2.17 2.18 2.19
-EOL := 2.13 2.14 2.15 2.16
+SUPPORTED := 2.18 2.19
+EOL := 2.13 2.14 2.15 2.16 2.17
 
 all: $(SUPPORTED)
 
@@ -63,9 +63,9 @@ define SHOW_VERSION
 
 endef
 
-versions: VERSIONS.md
-	@printf '# Versions\n' > $<
-	$(foreach v,$(EOL) $(SUPPORTED),$(call SHOW_VERSION,$(v),$<))
+versions:
+	@printf '# Versions\n' > VERSIONS.md
+	$(foreach v,$(EOL) $(SUPPORTED),$(call SHOW_VERSION,$(v),VERSIONS.md))
 
 release:
 	bash release.sh
