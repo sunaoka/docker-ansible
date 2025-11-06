@@ -1,10 +1,12 @@
-# syntax=docker/dockerfile:1.4
+# syntax=docker/dockerfile:1
 ARG PYTHON
-FROM python:${PYTHON}-slim
+FROM python:${PYTHON:-3.14}-slim
 
 ARG ANSIBLE
 
 ENV DEBIAN_FRONTEND=noninteractive
+
+ENV PYTHONDONTWRITEBYTECODE=1
 
 RUN <<'EOT' sh -ex
   apt-get update
@@ -17,7 +19,6 @@ RUN <<'EOT' sh -ex
   pip install --no-cache-dir --upgrade pip
 
   pip install --no-cache-dir \
-      ansible \
       ansible-core==${ANSIBLE} \
       ansible-lint \
       passlib
@@ -28,6 +29,8 @@ RUN <<'EOT' sh -ex
 
   rm -rf /var/lib/apt/lists/*
   rm -rf /tmp/*
+
+  ansible --version
 
   exit 0
 EOT
