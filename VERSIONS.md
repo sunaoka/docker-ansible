@@ -93,7 +93,7 @@ ansible-lint 25.8.2 using ansible-core:2.17.14 ansible-compat:25.8.1 ruamel-yaml
 ## Version 2.18
 
 ```text
-ansible [core 2.18.13]
+ansible [core 2.18.14]
   config file = None
   configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/local/lib/python3.13/site-packages/ansible
@@ -105,13 +105,13 @@ ansible [core 2.18.13]
 ```
 
 ```text
-ansible-lint 26.1.1 using ansible-core:2.18.13 ansible-compat:25.12.0 ruamel-yaml:0.19.1 ruamel-yaml-clib:0.2.15
+ansible-lint 26.1.1 using ansible-core:2.18.14 ansible-compat:25.12.0 ruamel-yaml:0.19.1 ruamel-yaml-clib:0.2.15
 ```
 
 ## Version 2.19
 
 ```text
-ansible [core 2.19.6]
+ansible [core 2.19.7]
   config file = None
   configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
   ansible python module location = /usr/local/lib/python3.13/site-packages/ansible
@@ -123,7 +123,7 @@ ansible [core 2.19.6]
 ```
 
 ```text
-ansible-lint 26.1.1 using ansible-core:2.19.6 ansible-compat:25.12.0 ruamel-yaml:0.19.1 ruamel-yaml-clib:0.2.15
+ansible-lint 26.1.1 using ansible-core:2.19.7 ansible-compat:25.12.0 ruamel-yaml:0.19.1 ruamel-yaml-clib:0.2.15
 ```
 
 ## Version 2.20
