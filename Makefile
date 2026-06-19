@@ -4,12 +4,12 @@ PYTHON  :=
 ANSIBLE_2_13 := 2.13.13
 ANSIBLE_2_14 := 2.14.18
 ANSIBLE_2_15 := 2.15.13
-ANSIBLE_2_16 := 2.16.18
+ANSIBLE_2_16 := 2.16.19
 ANSIBLE_2_17 := 2.17.14
-ANSIBLE_2_18 := 2.18.17
-ANSIBLE_2_19 := 2.19.10
-ANSIBLE_2_20 := 2.20.6
-ANSIBLE_2_21 := 2.21.0
+ANSIBLE_2_18 := 2.18.18
+ANSIBLE_2_19 := 2.19.11
+ANSIBLE_2_20 := 2.20.7
+ANSIBLE_2_21 := 2.21.1
 
 IMAGE := sunaoka/ansible
 
@@ -74,6 +74,7 @@ endef
 versions:
 	@printf '# Versions\n' > VERSIONS.md
 	$(foreach v,$(EOL) $(SUPPORTED),$(call SHOW_VERSION,$(v),VERSIONS.md))
+	sed -i '' $'s/\r$//' VERSIONS.md
 
 release:
 	bash release.sh
