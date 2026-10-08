@@ -7,9 +7,9 @@ ANSIBLE_2_15 := 2.15.13
 ANSIBLE_2_16 := 2.16.19
 ANSIBLE_2_17 := 2.17.14
 ANSIBLE_2_18 := 2.18.19
-ANSIBLE_2_19 := 2.19.13
-ANSIBLE_2_20 := 2.20.9
-ANSIBLE_2_21 := 2.21.4
+ANSIBLE_2_19 := 2.19.14
+ANSIBLE_2_20 := 2.20.10
+ANSIBLE_2_21 := 2.21.5
 
 IMAGE := sunaoka/ansible
 
@@ -74,7 +74,7 @@ endef
 versions:
 	@printf '# Versions\n' > VERSIONS.md
 	$(foreach v,$(EOL) $(SUPPORTED),$(call SHOW_VERSION,$(v),VERSIONS.md))
-	sed -i '' $'s/\r$//' VERSIONS.md
+	sed -i '' $$'s/\r$$//' VERSIONS.md
 
 release:
 	bash release.sh
